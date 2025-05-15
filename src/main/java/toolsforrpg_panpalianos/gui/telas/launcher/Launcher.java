@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 
 import toolsforrpg_panpalianos.gui.Cores;
 import toolsforrpg_panpalianos.gui.IconesImagem;
-import toolsforrpg_panpalianos.gui.componentes.botoes.BotaoLauncher;
 import toolsforrpg_panpalianos.gui.telas.estatisticas.TelaEstatisticas;
 import toolsforrpg_panpalianos.gui.telas.ficha.principal.TelaFichas;
 import toolsforrpg_panpalianos.gui.telas.iniciativas.TelaIniciativas;
