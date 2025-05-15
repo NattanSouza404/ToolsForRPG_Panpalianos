@@ -55,6 +55,7 @@ public abstract class FormFicha extends JFrame {
         pack();
 
         tipoFichaAtual = "Jogador";
+        trocarParaJogador();
     }
 
     public void iniciar(){
