@@ -9,19 +9,19 @@ import lombok.Getter;
 @Getter
 public enum IconesImagem {
 
-    LOGO("src/main/resources/images/capa_old_dragon.jpg"),
-    ARMA("src/main/resources/images/icones/espada.png",20,20),
-    ARMADURA("src/main/resources/images/icones/armaduras.png",20,20),
-    ESCUDO("src/main/resources/images/icones/escudo.png",20,20),
+    LOGO("projeto_java/src/main/resources/images/capa_old_dragon.jpg"),
+    ARMA("projeto_java/src/main/resources/images/icones/espada.png",20,20),
+    ARMADURA("projeto_java/src/main/resources/images/icones/armaduras.png",20,20),
+    ESCUDO("projeto_java/src/main/resources/images/icones/escudo.png",20,20),
     
-    OLHO("src/main/resources/images/icones/olho-aberto.png",20,20),
-    EDITAR("src/main/resources/images/icones/botao-editar.png",20,20),
-    EXCLUIR("src/main/resources/images/icones/lixo.png",20,20),
+    OLHO("projeto_java/src/main/resources/images/icones/olho-aberto.png",20,20),
+    EDITAR("projeto_java/src/main/resources/images/icones/botao-editar.png",20,20),
+    EXCLUIR("projeto_java/src/main/resources/images/icones/lixo.png",20,20),
 
-    DADO("src/main/resources/images/icones/dado.png",20,20),
+    DADO("projeto_java/src/main/resources/images/icones/dado.png",20,20),
 
-    SALVAR("src/main/resources/images/icones/salvar.png",20,20),
-    ARQUIVO("src/main/resources/images/icones/arquivo.png", 20, 20);
+    SALVAR("projeto_java/src/main/resources/images/icones/salvar.png",20,20),
+    ARQUIVO("projeto_java/src/main/resources/images/icones/arquivo.png", 20, 20);
 
     private ImageIcon imageIcon;
 
