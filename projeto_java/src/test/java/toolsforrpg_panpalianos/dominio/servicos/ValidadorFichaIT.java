@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import toolsforrpg_panpalianos.dados.modelo.enums.Classe;
 import toolsforrpg_panpalianos.dados.modelo.enums.Especializacao;
+import toolsforrpg_panpalianos.dados.modelo.enums.TipoAtributo;
 import toolsforrpg_panpalianos.dados.modelo.fichas.FichaCriatura;
 import toolsforrpg_panpalianos.dados.modelo.fichas.FichaJogador;
 
@@ -46,31 +47,78 @@ public class ValidadorFichaIT {
         
         System.out.println("Especializacao errada");
         ficha.setEspecializacao(Especializacao.PALADINO);
-        boolean result = ValidadorFicha.validarEspecializacao(ficha);
-        assertFalse(result);
+
+        try {
+            ValidadorFicha.validarEspecializacao(ficha);
+            fail();
+        } catch (Exception e){
+
+        }
         
         System.out.println("Especializacao certa");
         ficha.setEspecializacao(Especializacao.CACADOR);
-        result = ValidadorFicha.validarEspecializacao(ficha);
-        assertTrue(result);
+
+        try {
+            ValidadorFicha.validarEspecializacao(ficha);
+        } catch (Exception e){
+            fail();
+        }
+
         
         System.out.println("Nenhuma especializacao");
         ficha.setEspecializacao(Especializacao.NENHUMA);
-        result = ValidadorFicha.validarEspecializacao(ficha);
-        assertTrue(result);
+
+        try {
+            ValidadorFicha.validarEspecializacao(ficha);
+        } catch (Exception e){
+            fail();
+        }
         
         System.out.println("Especializacao nula");
         ficha.setEspecializacao(Especializacao.NENHUMA);
-        result = ValidadorFicha.validarEspecializacao(ficha);
-        assertTrue(result);
+
+        try {
+            ValidadorFicha.validarEspecializacao(ficha);
+        } catch (Exception e){
+            fail();
+        }
     }
 
     @Test
     public void testValidarAtributo(){
-        assertTrue(ValidadorFicha.validarAtributo(0));
-        assertTrue(ValidadorFicha.validarAtributo(50));
-        assertFalse(ValidadorFicha.validarAtributo(-1));
-        assertFalse(ValidadorFicha.validarAtributo(51));
+        FichaCriatura ficha = FichaCriatura.Builder.novaCriatura().forca(0).build();
+
+        try {
+            ValidadorFicha.validarAtributo(ficha, TipoAtributo.FORCA);
+        } catch (Exception e){
+            fail();
+        }
+
+        ficha.setForca(50);
+
+        try {
+            ValidadorFicha.validarAtributo(ficha, TipoAtributo.FORCA);
+        } catch (Exception e){
+            fail();
+        }
+
+        ficha.setForca(-1);
+
+        try {
+            ValidadorFicha.validarAtributo(ficha, TipoAtributo.FORCA);
+            fail();
+        } catch (Exception e){
+            
+        }
+
+        ficha.setForca(51);
+
+        try {
+            ValidadorFicha.validarAtributo(ficha, TipoAtributo.FORCA);
+            fail();
+        } catch (Exception e){
+
+        }
     }
 
     @Test
@@ -78,20 +126,41 @@ public class ValidadorFichaIT {
         FichaCriatura f = FichaCriatura.Builder.novaCriatura().build();
 
         f.setQuantDVs(2);
-        assertTrue(ValidadorFicha.validarDadoDeVida(f));
+
+        try {
+            ValidadorFicha.validarDadoDeVida(f);
+        } catch (Exception e){
+            fail();
+        }
 
         f.setQuantDVs(500);
-        assertFalse(ValidadorFicha.validarDadoDeVida(f));
-        
+
+        try {
+            ValidadorFicha.validarDadoDeVida(f);
+            fail();
+        } catch (Exception e){
+
+        }
+
         f.setQuantDVs(-2);
-        assertFalse(ValidadorFicha.validarDadoDeVida(f));
+
+        try {
+            ValidadorFicha.validarDadoDeVida(f);
+            fail();
+        } catch (Exception e){
+
+        }
 
         FichaJogador fj = FichaJogador.Builder.novoJogador().build();
 
         fj.setLvl(1);
-        (ValidadorFicha.validarDadoDeVida(fj));
-        
 
+        try {
+            ValidadorFicha.validarDadoDeVida(fj);
+        } catch (Exception e){
+
+        }
+        
     }
 
 }
